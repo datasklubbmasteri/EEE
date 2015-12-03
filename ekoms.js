@@ -14,20 +14,18 @@ var boozeWithRate;
 var sodaWithRate;
 
 function submit(){
-	//var beerString = getID("beer");
-	//var beerTotal = beerString.split("+");
 	beer = getSum(getID("beer"));
 	beerWithRate = Math.round(beer * beerRate);
-	//console.log(beerWithRate);
+	
 	cider = getSum(getID("cider"));
 	ciderWithRate = Math.round(cider * ciderRate);
-	//console.log(ciderWithRate);
+	
 	booze = getSum(getID("booze"));
 	boozeWithRate = Math.round(booze * boozeRate);
-	//console.log(boozeWithRate);
+	
 	soda = getSum(getID("soda"));
 	sodaWithRate = Math.round(soda * sodaRate);
-	//console.log(sodaWithRate);
+	
 	showResult();
 }
 
@@ -38,9 +36,7 @@ function showResult() {
 }
 
 function getID(id){
-	cid = document.getElementById(id).value;
-	//console.log("CID IS: " + cid);
-	return cid;
+	return document.getElementById(id).value;
 }
 
 function getSum(str) {
@@ -48,9 +44,7 @@ function getSum(str) {
 	console.log("The List is: [" + list + "]");
 	sum = 0;
 	for (var i = 0; i < list.length; i++) {
-		//console.log("nr is: " + list[i]);
 		sum += parseInt(list[i]);
-		//console.log("sum is: " + sum);
 	}
 	return sum;
 }
