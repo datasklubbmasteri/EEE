@@ -27,7 +27,7 @@ table {
 
 td {
 	color:WHITE;
-	padding-right: 70px;
+	padding-right: 30px;
 	background-color: #d2007f;
 	border: none;
 }
@@ -53,6 +53,7 @@ tr {
 }
 
 .in {
+	padding-left: 5px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 168px;
