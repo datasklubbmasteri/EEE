@@ -16,6 +16,16 @@ h3 {
 	margin-bottom: 4px;
 }
 
+img {
+	width: 70px;
+	height: 60px;
+}
+
+img:hover {
+	width: 210px;
+	height: 180px;
+}
+
 body {
     background-color: #000;
     font-family: 'Roboto Condensed', sans-serif;
