@@ -1,38 +1,33 @@
-var beer = 0;
-var cider = 0;
-var booze = 0;
-var soda = 0;
-
-var beerRate = 0.85;
-var ciderRate = beerRate;
-var boozeRate = 0.43;
-var sodaRate = 0.5;
-
-var beerWithRate;
-var	ciderWithRate;
-var boozeWithRate;
-var sodaWithRate;
+var beverages  = [	{"name": "beer" , "text": "Öl",    "total": 0, "rate": 0.85, "withRate": 0},
+					{"name": "cider", "text": "Cider", "total": 0, "rate": 0.85, "withRate": 0},
+					{"name": "booze", "text": "Sprit", "total": 0, "rate": 0.43, "withRate": 0},
+					{"name": "soda" , "text": "Lösk",  "total": 0, "rate": 0.5,  "withRate": 0}];
 
 function submit(){
-	beer = getSum(getID("beer"));
-	beerWithRate = Math.round(beer * beerRate);
-	
-	cider = getSum(getID("cider"));
-	ciderWithRate = Math.round(cider * ciderRate);
-	
-	booze = getSum(getID("booze"));
-	boozeWithRate = Math.round(booze * boozeRate);
-	
-	soda = getSum(getID("soda"));
-	sodaWithRate = Math.round(soda * sodaRate);
-	
+	for (var i = 0; i < beverages.length; i++) {
+		beverages[i].total = getSum(getID(beverages[i].name));
+		console.log(beverages[i].text + ": " + beverages[i].total);
+		beverages[i].withRate = Math.round(beverages[i].total * beverages[i].rate);
+		console.log(beverages[i].text + ": " + beverages[i].withRate);
+
+	}	
 	showResult();
 }
 
 function showResult() {
-	document.getElementById("titleRow").innerHTML = '<td class="firstCol"></td><td class="titleRow">Öl</td><td class="titleRow">Cider</td><td class="titleRow">Sprit</td><td class="titleRow">Lösk</td>';
-	document.getElementById("pre").innerHTML = '<td class="firstCol">Försäljning:</td><td class="pre">'+beer+'</td><td class="pre">'+cider+'</td><td class="pre">'+booze+'</td><td class="pre">'+soda+'</td>'
-	document.getElementById("post").innerHTML = '<td class="firstCol">Lagerföring:</td><td class="post">'+beerWithRate+'</td><td class="post">'+ciderWithRate+'</td><td class="post">'+boozeWithRate+'</td><td class="post">'+sodaWithRate+'</td>'
+	var titleString = '<td class="firstCol"></td>';
+	var preString = '<td class="firstCol">Försäljning:</td>';
+	var postString = '<td class="firstCol">Lagerföring:</td>';
+
+	for (var i = 0; i < beverages.length; i++) {
+		titleString += '<td class="titleRow">'+beverages[i].text+'</td>';
+		preString += '<td class="pre">'+beverages[i].total+'</td>';
+		postString += '<td class="post">'+beverages[i].withRate+'</td>';
+	}
+
+	document.getElementById("titleRow").innerHTML = titleString; 
+	document.getElementById("pre").innerHTML = preString;
+	document.getElementById("post").innerHTML = postString;
 }
 
 function getID(id){
